@@ -9,6 +9,7 @@ import { Education } from "../components/sections/Education";
 import { Hero } from "../components/sections/Hero";
 import { Projects } from "../components/sections/Projects";
 import { Skills } from "../components/sections/Skills";
+import { CursorGlow } from "../components/ui/CursorGlow";
 import { useActiveSection } from "../hooks/useActiveSection";
 import { useTheme } from "../hooks/useTheme";
 
@@ -24,6 +25,7 @@ export function Portfolio() {
         style={{ scaleX }}
         className="fixed top-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-[var(--gold)] via-[var(--cyan)] to-[var(--gold)] z-50"
       />
+      <CursorGlow />
       <Nav active={active} theme={theme} setTheme={setTheme} />
       <Hero />
       <About />

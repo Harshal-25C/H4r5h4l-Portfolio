@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
 import { Section } from "../layout/Section";
 import { Field } from "../ui/Field";
+import { BrandGithub, BrandLinkedin } from "../ui/SocialLogos";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -47,24 +48,31 @@ export function Contact() {
               India
             </div>
           </div>
-          <div className="flex gap-3 pt-2">
-            <a
-              href="https://github.com/Harshal-25C"
-              className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-[var(--gold)]/40 transition"
-            >
-              <Github className="w-4 h-4" />
-            </a>
+          <div className="flex flex-wrap gap-3 pt-2">
             <a
               href="https://linkedin.com/in/harshal-choudhary-a75117259"
-              className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-[var(--gold)]/40 transition"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="w-12 h-12 rounded-xl glass flex items-center justify-center text-white hover:text-[var(--gold)] hover:border-[var(--gold)]/40 transition-colors"
             >
-              <Linkedin className="w-4 h-4" />
+              <BrandLinkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://github.com/Harshal-25C"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="w-12 h-12 rounded-xl glass flex items-center justify-center text-white hover:text-[var(--gold)] hover:border-[var(--gold)]/40 transition-colors"
+            >
+              <BrandGithub className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="w-11 h-11 rounded-xl glass flex items-center justify-center hover:border-[var(--gold)]/40 transition"
+              aria-label="Website"
+              className="w-12 h-12 rounded-xl glass flex items-center justify-center text-white hover:text-[var(--gold)] hover:border-[var(--gold)]/40 transition-colors"
             >
-              <Globe className="w-4 h-4" />
+              <Globe className="h-5 w-5" />
             </a>
           </div>
         </div>
@@ -79,9 +87,11 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-3 glass rounded-3xl p-7 space-y-4"
+          className="group relative lg:col-span-3 overflow-hidden rounded-3xl border border-border bg-[oklch(0.16_0.025_270/0.82)] p-7 shadow-[0_30px_90px_-35px_oklch(0_0_0/0.9)] transition-all duration-500 hover:border-[oklch(0.82_0.16_80/0.5)] hover:shadow-[0_0_0_1px_oklch(0.82_0.16_80/0.25),0_28px_90px_-35px_oklch(0.82_0.16_80/0.75)] focus-within:border-[oklch(0.82_0.16_80/0.65)] focus-within:shadow-[0_0_0_1px_oklch(0.82_0.16_80/0.32),0_0_42px_-18px_oklch(0.82_0.16_80/0.9),0_30px_90px_-38px_oklch(0.78_0.16_215/0.75)] space-y-4"
         >
-          <div className="grid md:grid-cols-2 gap-4">
+          <motion.div aria-hidden className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100" style={{ background: "radial-gradient(circle at 52% 56%, oklch(0.82 0.16 80 / 0.18), transparent 28%), linear-gradient(135deg, oklch(0.82 0.16 80 / 0.13), transparent 42%, oklch(0.78 0.16 215 / 0.12))" }} />
+          <motion.div aria-hidden className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100" animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }} transition={{ duration: 5, repeat: Infinity, ease: "linear" }} style={{ background: "linear-gradient(90deg, transparent, oklch(0.82 0.16 80 / 0.55), oklch(0.78 0.16 215 / 0.36), transparent)", backgroundSize: "220% 100%", mask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)", maskComposite: "exclude", padding: 1 }} />
+          <div className="relative grid md:grid-cols-2 gap-4">
             <Field label="Name" name="name" placeholder="Your name" />
             <Field
               label="Email"
@@ -103,13 +113,15 @@ export function Contact() {
               required
               rows={5}
               placeholder="Tell me a little about what you're building..."
-              className="mt-2 w-full rounded-xl bg-input/40 border border-border px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]/60 transition resize-none"
+              className="mt-2 w-full rounded-xl bg-input/60 border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-[var(--gold)]/70 focus:shadow-[0_0_24px_-12px_oklch(0.82_0.16_80/0.9)] transition resize-none"
             />
           </div>
           <button
             type="submit"
-            className="w-full px-6 py-3.5 rounded-xl bg-[var(--gradient-gold)] text-primary-foreground font-medium glow-gold hover:scale-[1.01] active:scale-100 transition-transform"
+            className="relative mt-3 w-full overflow-hidden rounded-2xl px-6 py-4 text-base font-bold text-[oklch(0.12_0.02_270)] shadow-[0_18px_55px_-20px_oklch(0.82_0.16_80/0.95)] transition-transform hover:scale-[1.015] active:scale-[0.99]"
           >
+            <span className="absolute inset-0 bg-[linear-gradient(90deg,#f59e0b_0%,#f97316_7%,#fb7185_48%,#c084fc_100%)]" />
+            <span aria-hidden className="absolute inset-y-0 left-0 w-[6%] bg-[oklch(0.9_0.12_80/0.65)]" />
             <AnimatePresence mode="wait">
               <motion.span
                 key={sent ? "sent" : "send"}
@@ -117,7 +129,7 @@ export function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.2 }}
-                className="inline-block"
+                className="relative inline-block"
               >
                 {sent ? "✓ Message sent" : "Send Message"}
               </motion.span>

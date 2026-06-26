@@ -6,9 +6,10 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 
 import developer3D from "../../assets/developer-3d.png";
+import { BrandGithub, BrandLinkedin, BrandMail } from "../ui/SocialLogos";
 import { FloatingShapes } from "./FloatingShapes";
 
 export function Hero() {
@@ -31,8 +32,10 @@ export function Hero() {
   function handleMove(e) {
     if (!ref.current) return;
     const r = ref.current.getBoundingClientRect();
-    mx.set((e.clientX - r.left) / r.width - 0.5);
-    my.set((e.clientY - r.top) / r.height - 0.5);
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    mx.set(x - 0.5);
+    my.set(y - 0.5);
   }
 
   return (
@@ -90,7 +93,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.95] tracking-tight text-gradient-rainbow"
+              className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight text-gradient-rainbow"
             >
               Harshal
               <br />
@@ -147,37 +150,31 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="mt-8 flex flex-wrap gap-5 justify-center lg:justify-start text-sm"
+            className="mt-8 flex flex-wrap gap-7 justify-center lg:justify-start text-base"
           >
             <a
               href="https://linkedin.com/in/harshal-choudhary-a75117259"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-[var(--gold)] transition-colors group"
+              className="inline-flex items-center gap-2 text-white hover:text-[var(--gold)] transition-colors group"
             >
-              <span className="w-9 h-9 rounded-lg glass flex items-center justify-center group-hover:border-[var(--gold)]/50 transition-colors">
-                <Linkedin className="w-4 h-4" />
-              </span>
+              <BrandLinkedin className="h-6 w-6" />
               LinkedIn
             </a>
             <a
               href="https://github.com/Harshal-25C"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-[var(--gold)] transition-colors group"
+              className="inline-flex items-center gap-2 text-white hover:text-[var(--gold)] transition-colors group"
             >
-              <span className="w-9 h-9 rounded-lg glass flex items-center justify-center group-hover:border-[var(--gold)]/50 transition-colors">
-                <Github className="w-4 h-4" />
-              </span>
+              <BrandGithub className="h-6 w-6" />
               GitHub
             </a>
             <a
               href="mailto:harshalchoudhary340@gmail.com"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-[var(--gold)] transition-colors group"
+              className="inline-flex items-center gap-2 text-white hover:text-[var(--gold)] transition-colors group"
             >
-              <span className="w-9 h-9 rounded-lg glass flex items-center justify-center group-hover:border-[var(--gold)]/50 transition-colors">
-                <Mail className="w-4 h-4" />
-              </span>
+              <BrandMail className="h-6 w-6" />
               Email
             </a>
           </motion.div>
@@ -192,7 +189,7 @@ export function Hero() {
             rotateY: sImgRy,
             transformPerspective: 1400,
           }}
-          className="relative will-change-transform mx-auto max-w-md lg:max-w-none"
+          className="relative will-change-transform mx-auto max-w-sm md:max-w-md lg:max-w-lg"
         >
           <div
             className="absolute inset-6 rounded-[2.5rem] blur-3xl opacity-50"

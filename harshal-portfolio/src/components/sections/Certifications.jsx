@@ -8,7 +8,7 @@ export function Certifications() {
   return (
     <Section
       id="certifications"
-      eyebrow="03 — Certifications"
+      eyebrow="04 - Certifications"
       title={
         <>
           Recognised <span className="text-gradient-gold">credentials</span>

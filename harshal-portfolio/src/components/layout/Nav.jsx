@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Moon, Sparkles, Sun } from "lucide-react";
+import { Menu, Moon, Phone, Sparkles, Sun, X } from "lucide-react";
 
 import { NAV_ITEMS } from "../../lib/navigation";
 
 export function Nav({ active, theme, setTheme }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <motion.header
       initial={{ y: -40, opacity: 0 }}
@@ -25,6 +28,7 @@ export function Nav({ active, theme, setTheme }) {
         <nav className="relative glass rounded-full pl-3 pr-3 py-2 flex items-center gap-3 bg-background/70">
           <a
             href="#home"
+            onClick={() => setMobileOpen(false)}
             className="group relative shrink-0 inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full"
           >
             <motion.span
@@ -41,7 +45,7 @@ export function Nav({ active, theme, setTheme }) {
                 transition={{ duration: 2.4, repeat: Infinity }}
               />
             </motion.span>
-            <span className="hidden sm:flex flex-col leading-none">
+            <span className="flex flex-col leading-none">
               <span className="font-display font-bold text-sm text-gradient-gold">
                 Harshal
               </span>
@@ -83,7 +87,7 @@ export function Nav({ active, theme, setTheme }) {
               aria-label="Toggle theme"
               whileTap={{ scale: 0.9 }}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="relative w-9 h-9 rounded-full glass flex items-center justify-center hover:border-[var(--gold)]/50 transition-colors overflow-hidden"
+              className="relative hidden md:flex w-9 h-9 rounded-full glass items-center justify-center hover:border-[var(--gold)]/50 transition-colors overflow-hidden"
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
@@ -102,6 +106,7 @@ export function Nav({ active, theme, setTheme }) {
                 </motion.span>
               </AnimatePresence>
             </motion.button>
+
             <a
               href="#contact"
               className="group relative hidden sm:inline-flex text-xs px-4 py-2 rounded-full font-semibold text-[oklch(0.18_0.02_260)] overflow-hidden"
@@ -127,9 +132,70 @@ export function Nav({ active, theme, setTheme }) {
                 Let's Talk
               </span>
             </a>
+
+            <motion.button
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              whileTap={{ scale: 0.92 }}
+              onClick={() => setMobileOpen((open) => !open)}
+              className="relative md:hidden w-10 h-10 rounded-full glass flex items-center justify-center text-foreground hover:border-[var(--gold)]/50 transition-colors"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={mobileOpen ? "close" : "menu"}
+                  initial={{ rotate: -45, opacity: 0, scale: 0.7 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: 45, opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.2 }}
+                  className="inline-flex"
+                >
+                  {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </motion.span>
+              </AnimatePresence>
+            </motion.button>
           </div>
         </nav>
       </div>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.96 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute right-0 top-[calc(100%+0.75rem)] md:hidden w-[min(280px,92vw)] overflow-hidden rounded-3xl border border-[oklch(1_0_0/0.1)] bg-[linear-gradient(160deg,oklch(0.18_0.05_286/0.96),oklch(0.33_0.18_300/0.96),oklch(0.53_0.2_294/0.96))] p-4 shadow-[0_26px_80px_-30px_oklch(0_0_0/0.9)] backdrop-blur-xl"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,oklch(0.82_0.16_80/0.22),transparent_32%),radial-gradient(circle_at_100%_100%,oklch(0.78_0.16_215/0.16),transparent_36%)]" />
+            <div className="relative space-y-1 py-1">
+              {NAV_ITEMS.map((item, index) => (
+                <motion.a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={() => setMobileOpen(false)}
+                  initial={{ opacity: 0, x: 18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.035 }}
+                  className={`block rounded-2xl px-4 py-3 text-center font-semibold transition-colors ${
+                    active === item.id
+                      ? "bg-white/18 text-white"
+                      : "text-white/90 hover:bg-white/12 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+            </div>
+            <a
+              href="tel:+918349300794"
+              className="relative mt-4 flex items-center justify-center gap-2 rounded-2xl bg-white/14 px-4 py-3 font-semibold text-white hover:bg-white/20 transition-colors"
+            >
+              <Phone className="h-4 w-4 text-[var(--gold)]" />
+              +91 8349300794
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

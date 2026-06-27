@@ -16,7 +16,7 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="04 — Projects"
+      eyebrow="05 - Projects"
       title={
         <>
           Selected <span className="text-gradient-gold">work</span>

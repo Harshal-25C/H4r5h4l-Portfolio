@@ -7,7 +7,7 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      eyebrow="02 — Skills"
+      eyebrow="03 - Skills"
       title={
         <>
           Tools of <span className="text-gradient-gold">the trade</span>

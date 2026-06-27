@@ -59,6 +59,7 @@ export function Hero() {
         }}
       />
 
+      <CornerAccents />
       <FloatingShapes />
 
       <motion.div
@@ -214,5 +215,32 @@ export function Hero() {
         <span className="w-px h-10 bg-gradient-to-b from-[var(--gold)] to-transparent" />
       </motion.div>
     </section>
+  );
+}
+
+function CornerAccents() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+      <motion.div
+        className="absolute left-6 top-28 h-24 w-24 rounded-[1.4rem] border border-[oklch(0.82_0.16_80/0.28)] bg-[linear-gradient(135deg,oklch(0.82_0.16_80/0.13),oklch(0.78_0.16_215/0.08),transparent)] backdrop-blur-[2px]"
+        animate={{ y: [0, -10, 0], rotate: [0, 4, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute left-24 top-[38%] h-10 w-10 rounded-full border border-[oklch(0.82_0.16_80/0.38)] bg-[oklch(0.82_0.16_80/0.06)]"
+        animate={{ scale: [1, 1.18, 1], opacity: [0.55, 0.95, 0.55] }}
+        transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-24 right-14 h-24 w-24 rounded-[1.35rem] border border-[oklch(0.82_0.16_80/0.28)] bg-[linear-gradient(135deg,oklch(0.78_0.16_215/0.1),oklch(0.82_0.16_80/0.1),transparent)] backdrop-blur-[2px]"
+        animate={{ y: [0, 12, 0], rotate: [0, -5, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+      />
+      <motion.div
+        className="absolute bottom-12 right-[18%] h-12 w-12 rounded-full border border-[oklch(0.78_0.16_215/0.35)] bg-[oklch(0.78_0.16_215/0.06)]"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.45, 0.85, 0.45] }}
+        transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+      />
+    </div>
   );
 }

@@ -1,9 +1,21 @@
-import { motion } from "framer-motion";
-import { CalendarDays, Languages, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  CalendarDays,
+  Download,
+  Eye,
+  Languages,
+  Mail,
+  MapPin,
+  Phone,
+  X,
+} from "lucide-react";
 
 import harshalPhoto from "../../assets/harshal-photo.jpg";
 import { aboutStats } from "../../lib/portfolioData";
 import { Section } from "../layout/Section";
+
+const RESUME_URL = "/resume/harshal-choudhary-resume.pdf";
 
 const personalDetails = [
   { icon: CalendarDays, label: "Birthday", value: "25 Oct 2005" },
@@ -14,6 +26,8 @@ const personalDetails = [
 ];
 
 export function About() {
+  const [resumeOpen, setResumeOpen] = useState(false);
+
   return (
     <Section
       id="about"
@@ -39,6 +53,26 @@ export function About() {
               className="about-photo"
             />
           </div>
+
+          <motion.button
+            type="button"
+            onClick={() => setResumeOpen(true)}
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="group relative mx-auto mt-8 flex w-[min(100%,260px)] overflow-hidden rounded-2xl px-5 py-3 text-sm font-semibold text-[oklch(0.13_0.02_270)] shadow-[0_18px_50px_-28px_oklch(0.82_0.16_80/0.85)]"
+          >
+            <span className="absolute inset-0 bg-[linear-gradient(90deg,#f59e0b,#fb7185,#c084fc)]" />
+            <motion.span
+              aria-hidden
+              className="absolute inset-y-0 -left-1/3 w-1/3 skew-x-[-20deg] bg-white/35"
+              animate={{ x: ["0%", "430%"] }}
+              transition={{ duration: 2.6, repeat: Infinity, repeatDelay: 1.4, ease: "easeInOut" }}
+            />
+            <span className="relative inline-flex items-center justify-center gap-2">
+              <Eye className="h-4 w-4" />
+              View Resume
+            </span>
+          </motion.button>
         </motion.div>
 
         <motion.div
@@ -109,6 +143,61 @@ export function About() {
           </div>
         </motion.div>
       </div>
+
+      <ResumePreview open={resumeOpen} onClose={() => setResumeOpen(false)} />
     </Section>
+  );
+}
+
+function ResumePreview({ open, onClose }) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[70] bg-background/85 backdrop-blur-xl p-4 md:p-8 flex items-center justify-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 220, damping: 24 }}
+            className="relative w-full max-w-5xl h-[86vh] overflow-hidden rounded-3xl border border-border bg-[oklch(0.14_0.02_270)] shadow-[var(--shadow-elevated)]"
+          >
+            <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between gap-3 border-b border-border bg-background/82 px-4 py-3 backdrop-blur-xl">
+              <div>
+                <div className="text-sm font-semibold text-foreground">Harshal Choudhary Resume</div>
+                <div className="text-xs text-muted-foreground">Preview and download</div>
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href={RESUME_URL}
+                  download="Harshal Choudhary Resume.pdf"
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--gradient-gold)] px-4 py-2 text-xs font-bold text-primary-foreground hover:scale-105 transition-transform"
+                >
+                  <Download className="h-4 w-4" />
+                  Download
+                </a>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  aria-label="Close resume preview"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full glass hover:border-[var(--gold)]/50 transition-colors"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+            <iframe
+              title="Harshal Choudhary Resume"
+              src={RESUME_URL}
+              className="h-full w-full pt-[65px] bg-white"
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

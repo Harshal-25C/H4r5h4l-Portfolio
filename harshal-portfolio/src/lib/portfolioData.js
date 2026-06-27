@@ -1,8 +1,8 @@
 import { Code2, Cpu, Database, Layers, Terminal, Cloud } from "lucide-react";
 
 export const aboutStats = [
-  { value: "10+", label: "Projects Built" },
-  { value: "5+", label: "Certifications" },
+  { value: "15+", label: "Projects Built" },
+  { value: "10+", label: "Certifications" },
   { value: "B.Tech", label: "CSE Graduate" },
   { value: "∞", label: "Curiosity" },
 ];

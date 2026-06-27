@@ -12,7 +12,7 @@ export function Contact() {
   return (
     <Section
       id="contact"
-      eyebrow="06 — Contact"
+      eyebrow="07 - Contact"
       title={
         <>
           Let's build <span className="text-gradient-gold">something</span>
@@ -120,8 +120,14 @@ export function Contact() {
             type="submit"
             className="relative mt-3 w-full overflow-hidden rounded-2xl px-6 py-4 text-base font-bold text-[oklch(0.12_0.02_270)] shadow-[0_18px_55px_-20px_oklch(0.82_0.16_80/0.95)] transition-transform hover:scale-[1.015] active:scale-[0.99]"
           >
-            <span className="absolute inset-0 bg-[linear-gradient(90deg,#f59e0b_0%,#f97316_7%,#fb7185_48%,#c084fc_100%)]" />
-            <span aria-hidden className="absolute inset-y-0 left-0 w-[6%] bg-[oklch(0.9_0.12_80/0.65)]" />
+            <span className="absolute inset-0 bg-[linear-gradient(90deg,#f59e0b,#fb7185,#c084fc)]" />
+            <span aria-hidden className="absolute inset-y-0 left-0 w-[6%] bg-[oklch(0.9_0.12_80/0.5)]" />
+            <motion.span
+              aria-hidden
+              className="absolute inset-y-0 -left-1/2 w-1/2 skew-x-[-20deg] bg-white/30"
+              animate={{ x: ["0%", "320%"] }}
+              transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 1.2, ease: "easeInOut" }}
+            />
             <AnimatePresence mode="wait">
               <motion.span
                 key={sent ? "sent" : "send"}

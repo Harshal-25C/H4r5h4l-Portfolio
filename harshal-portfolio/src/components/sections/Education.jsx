@@ -8,7 +8,7 @@ export function Education() {
   return (
     <Section
       id="education"
-      eyebrow="05 — Education"
+      eyebrow="06 - Education"
       title={
         <>
           The <span className="text-gradient-gold">journey</span>

@@ -39,7 +39,7 @@
 
 ## 🌌 About the Project
 
-This repository powers the personal portfolio of **Harshal Choudhary**, an aspiring Software Engineer and B.Tech CSE graduate. — a single-page React application designed to feel *cinematic*: soft gold-and-violet gradients, glass-panel , animated conic-gradient borders, floating shapes, and scroll-triggered motion, all wrapped around a clean, professional narrative of who Harshal is as an engineer.
+This repository powers the personal portfolio of **Harshal Choudhary**, an aspiring Software Engineer and B.Tech CSE graduate. — a single-page React application designed to feel *cinematic*: soft gold-and-violet gradients, glass-panel cards, animated conic-gradient borders, floating shapes, and scroll-triggered motion, all wrapped around a clean, professional narrative of who Harshal is as an engineer.
 
 The goal was simple: **don't just list information — perform it.** Every section (Hero, About, Experience, Skills, Certifications, Projects, Education, Contact) is built as its own animated component, stitched together into one smooth-scrolling story with a sticky, pill-shaped navigation bar that tracks the active section as you scroll.
 

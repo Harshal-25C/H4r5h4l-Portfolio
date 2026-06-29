@@ -1,4 +1,13 @@
-import { Code2, Cpu, Database, Layers, Terminal, Cloud } from "lucide-react";
+import awsCloudFoundationsLogo from "../assets/AWS-Cloud-Foundations.png";
+import azureDeveloperAssociateLogo from "../assets/Azure-Developer-Associate.png";
+import azureFundamentalsLogo from "../assets/Azure-Fundamentals.png";
+import githubActionsLogo from "../assets/GitHub-Actions.png";
+import githubFoundationsLogo from "../assets/GitHub-Foundations.png";
+import ibmDataFundamentalsLogo from "../assets/IBM-Data-Fundamentals.png";
+import lumenoreLogo from "../assets/Lumenore.jpg";
+import oracleFoundationsLogo from "../assets/Oracle-Foundations-Associate.png";
+import sapLogo from "../assets/SAP.png";
+import wiproLogo from "../assets/Wipro.png";
 
 export const aboutStats = [
   { value: "15+", label: "Projects Built" },
@@ -9,44 +18,127 @@ export const aboutStats = [
 
 export const skillGroups = [
   {
-    icon: Code2,
-    title: "Languages",
-    items: ["JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"],
+    title: "Programming Language",
+    accent: "#c43ddb",
+    items: ["Java", "C++", "Python"],
   },
   {
-    icon: Layers,
-    title: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Vite"],
+    title: "Web Technologies",
+    accent: "#2f92de",
+    items: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS", "Framer Motion", "Vite"],
   },
   {
-    icon: Terminal,
-    title: "Backend",
-    items: ["Node.js", "Express", "REST APIs", "GraphQL", "FastAPI"],
+    title: "Frameworks",
+    accent: "#18b6a7",
+    items: ["Spring Boot", "Mockito", "JUnit"],
   },
   {
-    icon: Database,
-    title: "Databases",
-    items: ["PostgreSQL", "MongoDB", "Redis", "Supabase", "MySQL"],
+    title: "Database",
+    accent: "#7b22d9",
+    items: ["MySQL", "H2", "PostgreSQL", "Redis"],
   },
   {
-    icon: Cloud,
     title: "Cloud & DevOps",
-    items: ["AWS", "Docker", "Vercel", "GitHub Actions", "Linux"],
+    accent: "#f0813b",
+    items: ["AWS", "Microsoft Azure", "Google Cloud", "Docker", "Kubernetes", "CI/CD", "Jenkins", "Linux", "Ubuntu", "Vercel"],
   },
   {
-    icon: Cpu,
-    title: "Foundations",
-    items: ["DSA", "OOP", "System Design", "OS", "DBMS", "Networks"],
+    title: "UI/UX",
+    accent: "#f5bf22",
+    items: ["Figma", "Whimsical", "Canva", "Adobe XD", "Wireframing", "Google Forms", "InVision", "Zeplin"],
+  },
+  {
+    title: "Other Build Tools",
+    accent: "#df3f59",
+    items: ["Git", "GitHub", "Apache Maven", "DockerHub", "Postman", "VS Code", "STS (Eclipse)", "MobaXterm", "Gradle", "Android Studio"],
   },
 ];
 
 export const certifications = [
-  { name: "Full-Stack Web Development", issuer: "Coursera", year: "2024" },
-  { name: "Data Structures & Algorithms", issuer: "NPTEL", year: "2023" },
-  { name: "AWS Cloud Practitioner", issuer: "Amazon Web Services", year: "2024" },
-  { name: "Python for Data Science", issuer: "IBM", year: "2023" },
-  { name: "Database Management Systems", issuer: "NPTEL", year: "2023" },
-  { name: "Git & GitHub Essentials", issuer: "Meta", year: "2024" },
+  {
+    name: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
+    year: "27th March 2025",
+    logo: azureFundamentalsLogo,
+    certificate: "/certificates/Microsoft Azure Fundamentals.pdf",
+  },
+  {
+    name: "Microsoft Certified: Azure Developer Associate",
+    issuer: "Microsoft",
+    year: "17th June 2025",
+    logo: azureDeveloperAssociateLogo,
+    certificate: "/certificates/Microsoft Azure Developer Associate.pdf",
+  },
+  {
+    name: "GitHub Foundations",
+    issuer: "GitHub",
+    year: "16th June 2024",
+    logo: githubFoundationsLogo,
+    certificate: "/certificates/GitHub Foundations Certificate.pdf",
+  },
+  {
+    name: "GitHub Actions",
+    issuer: "GitHub",
+    year: "23rd June 2024",
+    logo: githubActionsLogo,
+    certificate: "/certificates/GitHub Actions Certificate.pdf",
+  },
+  {
+    name: "Oracle Cloud Infrastructure AI Foundations Associate",
+    issuer: "Oracle",
+    year: "02 September 2025",
+    logo: oracleFoundationsLogo,
+    certificate: "/certificates/Oracle OCI Associate.pdf",
+  },
+  {
+    name: "AWS Academy - Cloud Foundations",
+    issuer: "Amazon Web Services",
+    year: "23rd May 2025",
+    logo: awsCloudFoundationsLogo,
+    certificate: "/certificates/AWS_Academy-Cloud-Fundamentals.pdf",
+  },
+  {
+    name: "Wipro - Java Full Stack Developer",
+    issuer: "Wipro",
+    year: "October 2025",
+    logo: wiproLogo,
+    certificate: "/certificates/Wipro-Full-Stack-Java-Dev-HC.pdf",
+  },
+  {
+    name: "Lumenore Fundamentals",
+    issuer: "Lumenore",
+    year: "27th December 2023",
+    logo: lumenoreLogo,
+    certificate: "/certificates/lumenore-certificate(Fundamentles).pdf",
+  },
+  {
+    name: "Lumenore Certified: Fundamentals of BI & Analytics",
+    issuer: "Lumenore",
+    year: "25th December 2023",
+    logo: lumenoreLogo,
+    certificate: "/certificates/lumenore-certificate(BI & Analytics).pdf",
+  },
+  {
+    name: "IBM Certified: Data Fundamentals",
+    issuer: "IBM",
+    year: "31th January 2025",
+    logo: ibmDataFundamentalsLogo,
+    certificate: "/certificates/IBM Data Fundamental Certificate.pdf",
+  },
+  {
+    name: "SAP - Getting Started With Web Development",
+    issuer: "SAP",
+    year: "28th May 2025",
+    logo: sapLogo,
+    certificate: "/certificates/SAP-WEB-DEV.pdf",
+  },
+  {
+    name: "Lumenore Certified: Deep Dive",
+    issuer: "Lumenore",
+    year: "27th December 2023",
+    logo: lumenoreLogo,
+    certificate: "/certificates/lumenore-certificate (Deep drive).pdf",
+  },
 ];
 
 export const projects = [

@@ -64,14 +64,14 @@ export function Hero() {
 
       <motion.div
         style={{ y: heroY, opacity: heroOp }}
-        className="relative z-10 px-6 pt-32 lg:pt-24 pb-16 max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center"
+        className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-4 pt-28 pb-16 sm:px-6 sm:pt-32 lg:grid-cols-2 lg:pt-24"
       >
-        <div className="text-center lg:text-left">
+        <div className="mx-auto w-full max-w-xl text-center lg:mx-0 lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8 text-xs uppercase tracking-[0.2em] text-muted-foreground"
+            className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] text-muted-foreground glass sm:mb-8 sm:px-4 sm:text-xs sm:tracking-[0.2em]"
           >
             <Sparkles className="w-3 h-3 text-[var(--gold)]" />
             Aspiring Software Engineer
@@ -81,7 +81,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-3xl md:text-4xl font-display font-medium text-[var(--gold)] mb-2"
+            className="mb-2 font-display text-2xl font-medium text-[var(--gold)] sm:text-3xl md:text-4xl"
           >
             Hello, I'm
           </motion.div>
@@ -94,7 +94,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight text-gradient-rainbow"
+              className="text-4xl font-black leading-[0.95] tracking-tight text-gradient-rainbow sm:text-5xl md:text-7xl lg:text-8xl"
             >
               Harshal
               <br />
@@ -106,7 +106,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-6 text-2xl md:text-3xl font-light text-muted-foreground"
+            className="mt-5 text-lg font-light text-muted-foreground sm:text-2xl md:text-3xl"
           >
             Aspiring Software Engineer
           </motion.p>
@@ -114,7 +114,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-3 text-base text-muted-foreground/80 max-w-xl mx-auto lg:mx-0"
+            className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground/80 sm:text-base lg:mx-0 lg:max-w-xl"
           >
             B.Tech CSE Graduate crafting performant, elegant software — building
             the bridge between code and cinematic experience.
@@ -124,11 +124,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start"
+            className="mt-7 flex flex-wrap justify-center gap-3 sm:gap-4 lg:justify-start"
           >
             <a
               href="#contact"
-              className="group px-7 py-3.5 rounded-full text-white font-medium inline-flex items-center gap-2 hover:scale-105 transition-transform shadow-lg"
+              className="group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-white shadow-lg transition-transform hover:scale-105 sm:px-7 sm:py-3.5 sm:text-base"
               style={{
                 background: "linear-gradient(90deg,#f59e0b,#ec4899,#a855f7)",
               }}
@@ -140,7 +140,7 @@ export function Hero() {
             </a>
             <a
               href="#projects"
-              className="px-7 py-3.5 rounded-full glass font-medium hover:border-[var(--gold)]/50 transition-colors inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors glass hover:border-[var(--gold)]/50 sm:px-7 sm:py-3.5 sm:text-base"
             >
               View My Work
               <ArrowDown className="w-4 h-4" />
@@ -151,31 +151,31 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="mt-8 flex flex-wrap gap-7 justify-center lg:justify-start text-base"
+            className="mt-7 flex flex-wrap justify-center gap-4 text-xs sm:gap-6 sm:text-sm lg:justify-start"
           >
             <a
               href="https://linkedin.com/in/harshal-choudhary-a75117259"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-white hover:text-[var(--gold)] transition-colors group"
+              className="inline-flex items-center gap-1.5 text-white transition-colors hover:text-[var(--gold)] sm:gap-2"
             >
-              <BrandLinkedin className="h-6 w-6" />
+              <BrandLinkedin className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
               LinkedIn
             </a>
             <a
               href="https://github.com/Harshal-25C"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-white hover:text-[var(--gold)] transition-colors group"
+              className="inline-flex items-center gap-1.5 text-white transition-colors hover:text-[var(--gold)] sm:gap-2"
             >
-              <BrandGithub className="h-6 w-6" />
+              <BrandGithub className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
               GitHub
             </a>
             <a
               href="mailto:harshalchoudhary340@gmail.com"
-              className="inline-flex items-center gap-2 text-white hover:text-[var(--gold)] transition-colors group"
+              className="inline-flex items-center gap-1.5 text-white transition-colors hover:text-[var(--gold)] sm:gap-2"
             >
-              <BrandMail className="h-6 w-6" />
+              <BrandMail className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
               Email
             </a>
           </motion.div>
@@ -190,7 +190,7 @@ export function Hero() {
             rotateY: sImgRy,
             transformPerspective: 1400,
           }}
-          className="relative will-change-transform mx-auto max-w-sm md:max-w-md lg:max-w-lg"
+          className="relative mx-auto w-full max-w-[18rem] will-change-transform sm:max-w-sm md:max-w-md lg:max-w-lg"
         >
           <div
             className="absolute inset-6 rounded-[2.5rem] blur-3xl opacity-50"

@@ -6,6 +6,24 @@ import graduateBoyVideo from "../../assets/graduate-boy-harsh-video.mp4";
 import { educationItems } from "../../lib/portfolioData";
 import { Section } from "../layout/Section";
 
+const educationAccents = [
+  {
+    glow: "oklch(0.82 0.16 80 / 0.24)",
+    beam: "oklch(0.82 0.16 80 / 0.16)",
+    rim: "oklch(0.82 0.16 80 / 0.48)",
+  },
+  {
+    glow: "oklch(0.78 0.16 215 / 0.24)",
+    beam: "oklch(0.78 0.16 215 / 0.15)",
+    rim: "oklch(0.78 0.16 215 / 0.44)",
+  },
+  {
+    glow: "oklch(0.72 0.2 330 / 0.2)",
+    beam: "oklch(0.72 0.2 330 / 0.12)",
+    rim: "oklch(0.82 0.16 80 / 0.42)",
+  },
+];
+
 export function Education() {
   const graduateVideoRef = useRef(null);
 
@@ -93,50 +111,111 @@ export function Education() {
           </motion.div>
 
           <div className="relative">
-            <div className="absolute left-5 top-4 bottom-4 w-px bg-gradient-to-b from-transparent via-[var(--gold)] to-transparent md:left-8" />
-            <div className="space-y-4">
-              {educationItems.map((it, i) => (
-                <motion.article
-                  key={it.title}
-                  initial={{ opacity: 0, x: 48, rotateY: -16 }}
-                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                  whileHover={{ y: -8, rotateY: -5, scale: 1.02 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.55, delay: i * 0.12, ease: "easeOut" }}
-                  style={{ transformPerspective: 1000 }}
-                  className="group relative ml-12 max-w-[44rem] rounded-2xl border border-white/10 bg-[linear-gradient(145deg,oklch(0.22_0.035_270/0.88),oklch(0.14_0.03_270/0.84))] p-4 shadow-[0_22px_70px_-42px_oklch(0_0_0/0.9)] backdrop-blur transition-colors hover:border-[var(--gold)]/55 md:ml-16 md:p-5"
-                >
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    style={{
-                      background:
-                        "linear-gradient(120deg, oklch(0.82 0.16 80 / 0.12), transparent 42%, oklch(0.78 0.16 215 / 0.1))",
-                    }}
-                  />
-                  <div className="absolute -left-[2.35rem] top-6 grid h-7 w-7 place-items-center rounded-full border border-[var(--gold)]/70 bg-background shadow-[0_0_24px_oklch(0.82_0.16_80/0.55)] md:-left-[3.1rem]">
-                    <GraduationCap className="h-3.5 w-3.5 text-[var(--gold)]" />
-                  </div>
+            <motion.div
+              aria-hidden
+              className="absolute left-5 top-4 bottom-4 w-px overflow-hidden rounded-full bg-gradient-to-b from-transparent via-[var(--gold)]/60 to-transparent md:left-8"
+            >
+              <motion.span
+                className="absolute left-0 h-24 w-px bg-gradient-to-b from-transparent via-white to-transparent"
+                animate={{ y: ["-30%", "720%"] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </motion.div>
 
-                  <div className="relative">
-                    <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/25 bg-[var(--gold)]/10 px-3 py-1 text-[11px] font-semibold text-[var(--gold)]">
-                      <CalendarDays className="h-3.5 w-3.5" />
-                      {it.year}
+            <div className="space-y-5">
+              {educationItems.map((it, i) => {
+                const accent = educationAccents[i % educationAccents.length];
+
+                return (
+                  <motion.article
+                    key={it.title}
+                    initial={{ opacity: 0, x: 58, rotateY: -18, filter: "blur(8px)" }}
+                    whileInView={{ opacity: 1, x: 0, rotateY: 0, filter: "blur(0px)" }}
+                    whileHover={{
+                      y: -10,
+                      rotateY: -5,
+                      rotateX: 2,
+                      scale: 1.018,
+                      transition: { duration: 0.32 },
+                    }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.68, delay: i * 0.14, ease: [0.22, 1, 0.36, 1] }}
+                    style={{
+                      transformPerspective: 1100,
+                      "--card-glow": accent.glow,
+                      "--card-beam": accent.beam,
+                      "--card-rim": accent.rim,
+                    }}
+                    className="group relative ml-12 max-w-[44rem] rounded-[1.35rem] border border-white/10 bg-[linear-gradient(145deg,oklch(0.25_0.04_270/0.82),oklch(0.12_0.025_270/0.9)_62%,oklch(0.1_0.022_270/0.94))] p-[1px] shadow-[0_28px_90px_-48px_oklch(0_0_0/0.95)] backdrop-blur transition-colors hover:border-[var(--card-rim)] md:ml-16"
+                  >
+                    <div
+                      aria-hidden
+                      className="absolute -inset-px rounded-[1.35rem] opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, var(--card-glow), transparent 35%, oklch(0.78 0.16 215 / 0.16))",
+                      }}
+                    />
+                    <motion.div
+                      aria-hidden
+                      className="absolute inset-0 rounded-[1.35rem] bg-[linear-gradient(115deg,transparent_8%,oklch(1_0_0/0.17)_42%,transparent_58%)] opacity-0"
+                      whileHover={{ x: ["-115%", "115%"], opacity: [0, 0.75, 0] }}
+                      transition={{ duration: 1.25, ease: "easeInOut" }}
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 rounded-[1.35rem] opacity-70"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 16% 0%, var(--card-beam), transparent 34%), radial-gradient(circle at 92% 24%, oklch(0.78 0.16 215 / 0.1), transparent 32%)",
+                      }}
+                    />
+
+                    <motion.div
+                      className="absolute -left-[2.35rem] top-6 grid h-7 w-7 place-items-center rounded-full border border-[var(--gold)]/70 bg-background shadow-[0_0_24px_oklch(0.82_0.16_80/0.55)] md:-left-[3.1rem]"
+                      animate={{
+                        boxShadow: [
+                          "0 0 18px oklch(0.82 0.16 80 / 0.42)",
+                          "0 0 34px oklch(0.82 0.16 80 / 0.72)",
+                          "0 0 18px oklch(0.82 0.16 80 / 0.42)",
+                        ],
+                      }}
+                      transition={{ duration: 3.2, delay: i * 0.35, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <GraduationCap className="h-3.5 w-3.5 text-[var(--gold)]" />
+                    </motion.div>
+
+                    <div className="relative overflow-hidden rounded-[1.3rem] p-4 md:p-5">
+                      <div
+                        aria-hidden
+                        className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-70"
+                      />
+                      <div
+                        aria-hidden
+                        className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[radial-gradient(circle,var(--card-glow),transparent_66%)] blur-2xl transition-transform duration-700 group-hover:scale-125"
+                      />
+
+                      <div className="relative">
+                        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/30 bg-[linear-gradient(135deg,oklch(0.82_0.16_80/0.18),oklch(0.82_0.16_80/0.07))] px-3 py-1 text-[11px] font-semibold text-[var(--gold)] shadow-[inset_0_1px_0_oklch(1_0_0/0.12)]">
+                          <CalendarDays className="h-3.5 w-3.5" />
+                          {it.year}
+                        </div>
+                        <h3 className="font-display text-xl font-bold leading-tight text-foreground drop-shadow-sm transition-colors group-hover:text-[var(--gold)] md:text-[1.35rem]">
+                          {it.title}
+                        </h3>
+                        <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">
+                          <MapPin className="h-4 w-4 shrink-0 text-[var(--gold)]/85" />
+                          <span>{it.where}</span>
+                        </div>
+                        <p className="mt-3 flex gap-3 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground/75">
+                          <BookOpen className="mt-1 h-4 w-4 shrink-0 text-[var(--gold)]/85" />
+                          <span>{it.desc}</span>
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="font-display text-xl font-bold leading-tight text-foreground transition-colors group-hover:text-[var(--gold)] md:text-[1.35rem]">
-                      {it.title}
-                    </h3>
-                    <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4 shrink-0 text-[var(--gold)]/80" />
-                      <span>{it.where}</span>
-                    </div>
-                    <p className="mt-3 flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                      <BookOpen className="mt-1 h-4 w-4 shrink-0 text-[var(--gold)]/80" />
-                      <span>{it.desc}</span>
-                    </p>
-                  </div>
-                </motion.article>
-              ))}
+                  </motion.article>
+                );
+              })}
             </div>
           </div>
         </div>

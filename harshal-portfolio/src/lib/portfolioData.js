@@ -210,20 +210,20 @@ export const educationItems = [
   {
     year: "2022 — 2026",
     title: "B.Tech, Computer Science & Engineering",
-    where: "University / Institute Name",
-    desc: "Coursework in DSA, OS, DBMS, Networks, AI/ML and Software Engineering. Active in coding clubs and open-source.",
+    where: "Technocrats Institute of Technology, Bhopal (M.P)",
+    desc: "Coursework in Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, Computer Networks, Software Engineering, Cloud Computing, and Artificial Intelligence. Strengthened academic foundations through enterprise-grade Java Full-Stack Development, Spring Boot, Microservices, Android Development, Cloud Computing, DevOps, and Generative AI, delivering scalable applications backed by industry certifications and hands-on project experience.",
   },
   {
     year: "2021 — 2022",
-    title: "Senior Secondary (PCM)",
-    where: "School Name",
-    desc: "Built early foundations in programming with C++ and Python; first hackathons and personal websites.",
+    title: "Higher Secondary Education (PCM) (Class XII)",
+    where: "Saraswati Vidya Mandir, Burhanpur (M.P)",
+    desc: "Specialized in Physics, Chemistry, and Mathematics (PCM), strengthening analytical reasoning and quantitative problem-solving skills.",
   },
   {
     year: "2019 — 2020",
-    title: "Secondary School",
-    where: "School Name",
-    desc: "Discovered computers and the joy of breaking things to understand how they work.",
+    title: "Secondary School Education (Class X)",
+    where: "Saraswati Vidya Mandir, Burhanpur (M.P)",
+    desc: "Established a strong academic foundation with distinction in Mathematics and Science, demonstrating consistent academic excellence.",
   },
 ];
 

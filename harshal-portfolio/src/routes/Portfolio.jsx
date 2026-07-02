@@ -12,11 +12,9 @@ import { Projects } from "../components/sections/Projects";
 import { Skills } from "../components/sections/Skills";
 import { CursorGlow } from "../components/ui/CursorGlow";
 import { useActiveSection } from "../hooks/useActiveSection";
-import { useTheme } from "../hooks/useTheme";
 
 export function Portfolio() {
   const active = useActiveSection();
-  const [theme, setTheme] = useTheme();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
@@ -27,7 +25,7 @@ export function Portfolio() {
         className="fixed top-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-[var(--gold)] via-[var(--cyan)] to-[var(--gold)] z-50"
       />
       <CursorGlow />
-      <Nav active={active} theme={theme} setTheme={setTheme} />
+      <Nav active={active} />
       <Hero />
       <About />
       <Experience />

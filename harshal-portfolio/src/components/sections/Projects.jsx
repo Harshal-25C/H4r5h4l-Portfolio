@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Boxes, ExternalLink, Github } from "lucide-react";
+import { Boxes, ExternalLink } from "lucide-react";
 
 import { Section } from "../layout/Section";
 import { Lightbox } from "../ui/Lightbox";
 import { projectCategories, projects } from "../../lib/portfolioData";
+import githubLogo from "../../assets/github.webp";
 
 export function Projects() {
   const [filter, setFilter] = useState("All");
@@ -102,16 +103,33 @@ export function Projects() {
                 </div>
                 <div className="flex items-center gap-4 text-sm">
                   <a
-                    className="inline-flex items-center gap-1.5 text-[var(--gold)] hover:underline"
-                    href="#"
+                    className="group/live relative inline-flex items-center gap-2 text-base font-semibold text-[var(--gold)] transition-all duration-300 [text-shadow:0_0_18px_oklch(0.82_0.16_80/0.28)] hover:-translate-y-0.5 hover:text-[oklch(0.9_0.14_85)] hover:[text-shadow:0_0_26px_oklch(0.82_0.16_80/0.5)]"
+                    href={p.caseStudyUrl}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    Case study <ExternalLink className="w-3.5 h-3.5" />
+                    <span className="relative">
+                      Live
+                      <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-50 bg-[linear-gradient(90deg,var(--gold),transparent)] transition-transform duration-300 group-hover/live:scale-x-100" />
+                    </span>
+                    <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5" />
                   </a>
                   <a
-                    className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
-                    href="#"
+                    className="group/source relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 font-semibold text-foreground shadow-[0_12px_32px_-18px_oklch(0_0_0/0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--gold)]/50 hover:bg-[var(--gold)]/10 hover:shadow-[0_18px_42px_-24px_oklch(0.82_0.16_80/0.8)]"
+                    href={p.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    <Github className="w-3.5 h-3.5" /> Source
+                    <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(90deg,transparent,oklch(1_0_0/0.12),transparent)] transition-transform duration-700 group-hover/source:translate-x-full" />
+                    <span className="relative grid h-6 w-6 place-items-center rounded-full bg-white shadow-[0_0_0_1px_oklch(1_0_0/0.12)]">
+                      <img
+                        src={githubLogo}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-4 w-4 object-contain"
+                      />
+                    </span>
+                    <span className="relative">Source</span>
                   </a>
                 </div>
               </div>

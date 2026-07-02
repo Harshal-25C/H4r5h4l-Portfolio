@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { AnimatePresence, motion } from "framer-motion";
 import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
@@ -7,7 +8,37 @@ import { Field } from "../ui/Field";
 import { BrandGithub, BrandLinkedin } from "../ui/SocialLogos";
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
+  const formRef = useRef(null);
+  const [status, setStatus] = useState("idle");
+  const sent = status === "sent";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formRef.current || status === "sending") return;
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("error");
+      return;
+    }
+
+    try {
+      setStatus("sending");
+      await emailjs.sendForm(serviceId, templateId, formRef.current, {
+        publicKey,
+      });
+      formRef.current.reset();
+      setStatus("sent");
+      setTimeout(() => setStatus("idle"), 3000);
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
+      setStatus("error");
+    }
+  };
 
   return (
     <Section
@@ -78,11 +109,8 @@ export function Contact() {
         </div>
 
         <motion.form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-            setTimeout(() => setSent(false), 3000);
-          }}
+          ref={formRef}
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -110,6 +138,8 @@ export function Contact() {
               Message
             </label>
             <textarea
+              id="message"
+              name="message"
               required
               rows={5}
               placeholder="Tell me a little about what you're building..."
@@ -118,6 +148,7 @@ export function Contact() {
           </div>
           <button
             type="submit"
+            disabled={status === "sending"}
             className="relative mt-3 w-full overflow-hidden rounded-2xl px-6 py-4 text-base font-bold text-[oklch(0.12_0.02_270)] shadow-[0_18px_55px_-20px_oklch(0.82_0.16_80/0.95)] transition-transform hover:scale-[1.015] active:scale-[0.99]"
           >
             <span className="absolute inset-0 bg-[linear-gradient(90deg,#f59e0b,#fb7185,#c084fc)]" />
@@ -130,7 +161,7 @@ export function Contact() {
             />
             <AnimatePresence mode="wait">
               <motion.span
-                key={sent ? "sent" : "send"}
+                key={status}
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
@@ -141,6 +172,18 @@ export function Contact() {
               </motion.span>
             </AnimatePresence>
           </button>
+          <AnimatePresence>
+            {status === "error" && (
+              <motion.p
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                className="relative text-center text-sm font-medium text-[var(--gold)]"
+              >
+                Message could not be sent. Please try again.
+              </motion.p>
+            )}
+          </AnimatePresence>
         </motion.form>
       </div>
     </Section>

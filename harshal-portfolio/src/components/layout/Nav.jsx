@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Moon, Phone, Sparkles, Sun, X } from "lucide-react";
+import { Menu, Phone, Sparkles, X } from "lucide-react";
 
 import { NAV_ITEMS } from "../../lib/navigation";
 
-export function Nav({ active, theme, setTheme }) {
+export function Nav({ active }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -83,30 +83,6 @@ export function Nav({ active, theme, setTheme }) {
           </ul>
 
           <div className="flex items-center gap-2 shrink-0 ml-auto md:ml-0">
-            <motion.button
-              aria-label="Toggle theme"
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="relative hidden md:flex w-9 h-9 rounded-full glass items-center justify-center hover:border-[var(--gold)]/50 transition-colors overflow-hidden"
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={theme}
-                  initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                  exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                  transition={{ duration: 0.3 }}
-                  className="inline-flex"
-                >
-                  {theme === "dark" ? (
-                    <Sun className="w-4 h-4 text-[var(--gold)]" />
-                  ) : (
-                    <Moon className="w-4 h-4 text-[var(--gold)]" />
-                  )}
-                </motion.span>
-              </AnimatePresence>
-            </motion.button>
-
             <a
               href="#contact"
               className="group relative hidden sm:inline-flex text-xs px-4 py-2 rounded-full font-semibold text-[oklch(0.18_0.02_260)] overflow-hidden"

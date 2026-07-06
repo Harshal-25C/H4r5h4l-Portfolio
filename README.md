@@ -39,11 +39,19 @@
 
 ## 🌌 About the Project
 
-This repository powers **Harshal Choudhary's personal developer portfolio** — a single-page React application designed to feel *cinematic*: soft gold-and-violet gradients, glass-panel cards, animated conic-gradient borders, floating shapes, and scroll-triggered motion, all wrapped around a clean, professional narrative of who Harshal is as an engineer.
+This repository powers the personal portfolio of **Harshal Choudhary**, an aspiring Software Engineer and B.Tech CSE graduate. — a single-page React application designed to feel *cinematic*: soft gold-and-violet gradients, glass-panel cards, animated conic-gradient borders, floating shapes, and scroll-triggered motion, all wrapped around a clean, professional narrative of who Harshal is as an engineer.
 
 The goal was simple: **don't just list information — perform it.** Every section (Hero, About, Experience, Skills, Certifications, Projects, Education, Contact) is built as its own animated component, stitched together into one smooth-scrolling story with a sticky, pill-shaped navigation bar that tracks the active section as you scroll.
 
 > B.Tech CSE graduate crafting performant, elegant software — building the bridge between code and cinematic experience.
+
+| | |
+|---|---|
+| 🎓 **Education** | B.Tech, Computer Science & Engineering — Technocrats Institute of Technology, Bhopal (2022–2026) |
+| 💼 **Current Role** | Software Engineer — Full‑Stack Java Development + Python Gen‑AI @ Capgemini |
+| 📍 **Location** | Mumbai, India |
+| 📧 **Email** | harshalchoudhary340@gmail.com |
+| 📞 **Phone** | +91 8349300794 |
 
 ---
 
@@ -119,6 +127,31 @@ A glowing, animated contact card with direct email/phone/location info and socia
 | **Email Delivery** | [@emailjs/browser](https://www.emailjs.com/) — serverless contact form submission |
 | **Hosting Targets** | Vercel / Netlify / GitHub Pages |
 | **Tooling** | ESLint-ready structure, `.gitignore`, MIT License |
+
+<table>
+<tr>
+<td valign="top" width="50%">
+
+**Core**
+- ⚛️ React 18.3 (JSX)
+- ⚡ Vite 6.0
+- 🎨 Tailwind CSS v4 (`@tailwindcss/vite`)
+- 🎬 Framer Motion 11
+- 🎯 Lucide React (icon system)
+- ✉️ EmailJS Browser SDK
+
+</td>
+<td valign="top" width="50%">
+
+**Tooling**
+- 📦 npm
+- 🔌 `@vitejs/plugin-react`
+- 🗂 ES Modules (`type: module`)
+- 🖋 Google Fonts — Space Grotesk, Inter, JetBrains Mono
+
+</td>
+</tr>
+</table>
 
 ### Full Skill Universe Represented on the Site (45 tools across 7 domains)
 
@@ -381,16 +414,37 @@ This project doesn't ship with an automated unit-test suite (no Jest/Vitest conf
 | 07 | Education | `Education.jsx` | Timeline from Secondary School → Higher Secondary (PCM) → B.Tech CSE |
 | 08 | Contact | `Contact.jsx` | EmailJS-powered form + direct contact details + social links |
 
-### Featured Projects
+## 💼 Featured Projects
 
-| Project | Category | Stack Highlights |
+| Project | Category | Tech Highlights | Links |
+|---|---|---|---|
+| **Hand-Draw Studio** | Frontend · Design System | HTML5 Canvas, MediaPipe Hands, Vanilla JS (ES6), Framer Motion | [Live](https://harshal-25c.github.io/HandDraw-Studio/) · [Source](https://github.com/Harshal-25C/HandDraw-Studio) |
+| **MediBook — Appointment Booking System** | Full-Stack | Java, Spring Boot, Microservices, Docker, JWT, RabbitMQ, React.js, AWS, CI/CD | [Live](https://medibook-client-beryl.vercel.app/) · [Source](https://github.com/Harshal-25C/MediBook-Microservices) |
+| **Quantity Measurement Application** | Full-Stack | Java, Spring Boot, Microservices, Docker, JWT, React.js, TypeScript, GitHub API | [Live](https://quantity-measurement-app-frontend-lyart.vercel.app/) · [Source](https://github.com/Harshal-25C/QuantityMeasurementApp) |
+| **HkMusicPlayerApp** | Android App | Java, Android Studio, Gradle, XML, Android SDK | [Source](https://github.com/Harshal-25C/HkMusicPlayerApp) |
+| **H4r5h4l-Portfolio** | Frontend · Animation | React.js, Vite, Tailwind CSS, Framer Motion | [Source](https://github.com/Harshal-25C/H4r5h4l-Portfolio) |
+| **QuickSlot — Online Reservation System** | Backend | Java, MySQL, JDBC, Command-Line | [Source](https://github.com/Harshal-25C/QuickSlot_H_C_) |
+
+<br/>
+
+## 🏆 Certifications
+
+| Certification | Issuer | Date |
 |---|---|---|
-| **Hand-Draw Studio** | Frontend / Design System | HTML5 Canvas, MediaPipe Hands, Framer Motion — real-time gesture-based Air Canvas drawing app |
-| **MediBook** — Online Appointment Booking System | Full-Stack | Java, Spring Boot, Microservices, Docker, JWT, RabbitMQ, React.js, Jenkins CI/CD, Redis, Razorpay |
-| **Quantity Measurement Application** | Full-Stack | Spring Boot Microservices, JWT, Open-Feign, RabbitMQ, TypeScript, CI/CD, JUnit, Mockito |
-| **HkMusicPlayerApp** | Android | Java, Android Studio, Gradle, Android SDK |
-| **H4r5h4l-Portfolio** | Frontend | React.js, Vite, Tailwind CSS, Framer Motion (this very project) |
-| **QuickSlot** — Online Reservation System | Backend | Java, JDBC, MySQL, command-line train booking interface |
+| Microsoft Certified: Azure Fundamentals | Microsoft | 27 Mar 2025 |
+| Microsoft Certified: Azure Developer Associate | Microsoft | 17 Jun 2025 |
+| GitHub Foundations | GitHub | 16 Jun 2024 |
+| GitHub Actions | GitHub | 23 Jun 2024 |
+| Oracle Cloud Infrastructure AI Foundations Associate | Oracle | 02 Sep 2025 |
+| AWS Academy — Cloud Foundations | Amazon Web Services | 23 May 2025 |
+| Wipro — Java Full Stack Developer | Wipro | Oct 2025 |
+| Lumenore Fundamentals | Lumenore | 27 Dec 2023 |
+| Lumenore Certified: Fundamentals of BI & Analytics | Lumenore | 25 Dec 2023 |
+| IBM Certified: Data Fundamentals | IBM | 31 Jan 2025 |
+| SAP — Getting Started With Web Development | SAP | 28 May 2025 |
+| Lumenore Certified: Deep Dive | Lumenore | 27 Dec 2023 |
+
+<br/>
 
 ---
 
@@ -422,7 +476,7 @@ This project doesn't ship with an automated unit-test suite (no Jest/Vitest conf
 - 📱 Phone: +91 8349300794
 - 🔗 LinkedIn: [linkedin.com/in/harshal-choudhary-a75117259](https://linkedin.com/in/harshal-choudhary-a75117259)
 - 🐙 GitHub: [github.com/Harshal-25C](https://github.com/Harshal-25C)
-- 📍 Location: India
+- 📍 Location: Mumbai, India
 
 ---
 

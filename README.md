@@ -12,7 +12,7 @@
 
 **A dark, glassmorphic, motion-first developer portfolio — engineered like a product, animated like a film.**
 
-[Live Demo](#) · [Report a Bug](https://github.com/Harshal-25C/H4r5h4l-Portfolio/issues) · [Request a Feature](https://github.com/Harshal-25C/H4r5h4l-Portfolio/issues)
+[Live Demo](https://h4r5h4l-portfolio.vercel.app/) · [Report a Bug](https://github.com/Harshal-25C/H4r5h4l-Portfolio/issues) · [Request a Feature](https://github.com/Harshal-25C/H4r5h4l-Portfolio/issues)
 
 </div>
 

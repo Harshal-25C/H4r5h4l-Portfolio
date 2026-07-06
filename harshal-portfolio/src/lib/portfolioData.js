@@ -201,7 +201,7 @@ export const projects = [
     stack: ["React.Js", "Vite", "HTML", "Tailwind CSS", "JavaScript", "Framer-Motion", "Json", "Radix"],
     accent: "var(--gold)",
     sourceUrl: "https://github.com/Harshal-25C/H4r5h4l-Portfolio",
-    caseStudyUrl: "https://github.com/Harshal-25C/H4r5h4l-Portfolio",
+    caseStudyUrl: "https://h4r5h4l-portfolio.vercel.app/",
     image:
       "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1600&q=80",
   },
